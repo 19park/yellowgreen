@@ -1,7 +1,7 @@
 {
-  "name": "my-project",
+  "name": "yellowgreen!",
   "version": "1.0.0",
-  "description": "Nuxt.js project",
+  "description": "fucking yellowgreen.",
   "author": "19park <19park@wholedoc.net>",
   "private": true,
   "scripts": {
@@ -13,9 +13,12 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "lodash": "^4.17.10",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
