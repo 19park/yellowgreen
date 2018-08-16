@@ -1,6 +1,12 @@
 <template>
   <section class="container" :style="{ backgroundColor: `yellowgreen`}">
 	<!--<img src="~/assets/y1.png"/>//-->
+	<!--
+	:style="{ 
+	backgroundImage: `url(${backgroundUrl})` ,
+	backgroundSize: 'cover' 
+	}
+	//-->
     <div>
       <h1 class="title">
         yellowgreen
@@ -9,12 +15,8 @@
         yellowgreen project
       </h2>
 		<div class="cell-container">
-			<div class="cell" 
-			 :style="{ 
-			 backgroundImage: `url(${backgroundUrl})` ,
-			 backgroundSize: 'cover' 
-			 }"
-			 @click="anim">
+			<div class="cell" @click="anim">
+			 <img src="~/assets/y1.png"/>
 			 </div>
 		</div>
     </div>
@@ -44,6 +46,10 @@ export default {
 </script>
 
 <style>
+@media all and (max-width:500px){
+	h1 { font-size:1rem; }
+	h2 { font-size:.8rem; }
+}
 .container {
   min-height: 100vh;
   display: flex;
@@ -56,7 +62,6 @@ export default {
   font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
   display: block;
   font-weight: 300;
-  font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
 }
@@ -69,35 +74,9 @@ export default {
   padding-bottom: 15px;
 }
 
-.links {
-  padding-top: 15px;
-}
-
-.cell-container {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.cell-container .cell {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid #000;
-}
-
-.cell-container .cell:nth-child(3n) {
-  margin-right: 0;
-}
-.cell-container .cell:nth-child(27n) {
-  margin-bottom: 0;
-}
-
-.cell-move {
-  transition: transform 1s;
+.cell {
+  width:100%;
+  min-height:100px;
 }
 </style>
 
