@@ -17,7 +17,7 @@
         <div class="level-left"></div>
         <div class="level-right">
           <a class="level-item">
-            <a target="_blank" :href="`/posts/${post['.key']}`" class="icon is-small"><i class="fa fa-eye"></i></a>
+            <a target="_self" :href="`/posts/${post['.key']}`" class="icon is-small"><i class="fa fa-eye"></i></a>
           </a>
         </div>
       </nav>

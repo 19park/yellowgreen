@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="media" v-else>
-      <a class="button is-primary" @click="callAuth">구글이로 로그인하자</a>
+      <a class="button is-danger" @click="callAuth">구글이로 로그인하자</a>
     </div>
   </div>
 </template>

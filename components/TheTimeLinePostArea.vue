@@ -5,7 +5,7 @@
     </p>
     <p class="control">
       <button class="button is-primary">
-        Post
+        저장
       </button>
     </p>
   </form>
