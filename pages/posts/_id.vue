@@ -23,7 +23,7 @@
         </div>
         <p class="is-text-centered" style="margin-top: 16px;">
           <nuxt-link to="/">
-            Back to Timeline
+            메인으로
           </nuxt-link>
         </p>
       </div>
