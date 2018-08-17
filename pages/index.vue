@@ -1,82 +1,101 @@
 <template>
-  <section class="container" :style="{ backgroundColor: `yellowgreen`}">
-	<!--<img src="~/assets/y1.png"/>//-->
-	<!--
-	:style="{ 
-	backgroundImage: `url(${backgroundUrl})` ,
-	backgroundSize: 'cover' 
-	}
-	//-->
-    <div>
-      <h1 class="title">
-        yellowgreen
-      </h1>
-      <h2 class="subtitle">
-        yellowgreen project
-      </h2>
-		<div class="cell-container">
-			<div class="cell" @click="anim">
-			 <img src="~/assets/y1.png"/>
-			 </div>
-		</div>
+  <div class="container">
+    <div class="columns" v-if="isLoaded">
+      <TheUserInfo class="column is-narrow is-3" />
+      <TheTimeLine class="column is-narrow is-9" />
     </div>
-  </section>
+    <div class="loading-wrapper" v-else>
+      <div class="loading"></div>
+    </div>
+  </div>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-import backgroundUrl from '~/assets/y1.png'
-
+import auth from '~/plugins/auth'
+import TheTimeLine from '~/components/TheTimeLine.vue'
+import TheUserInfo from '~/components/TheUserInfo.vue'
+import { mapGetters } from 'vuex'
 
 export default {
-	data (){
-		return{
-			backgroundUrl
-		}
-	},
-  components: {
-    AppLogo
+  data () {
+    return {
+      isLoaded: false
+    }
   },
-  methods: {
-	anim() {
-		
-	}
+  components: {
+    TheTimeLine,
+    TheUserInfo
+  },
+  async mounted () {
+    if (process.browser) {
+      let user
+      if (!this.user) user = await auth()
+      await Promise.all([
+        this.user ? Promise.resolve() : this.$store.dispatch('SET_CREDENTIAL', { user: user || null }),
+        this.posts.length ? Promise.resolve() : this.$store.dispatch('INIT_POSTS'),
+        this.users.length ? Promise.resolve() : this.$store.dispatch('INIT_USERS')
+      ])
+      this.isLoaded = true
+    }
+  },
+  computed: {
+    ...mapGetters(['user', 'users', 'posts'])
   }
 }
 </script>
 
-<style>
-@media all and (max-width:500px){
-	h1 { font-size:1rem; }
-	h2 { font-size:.8rem; }
-}
+<style scoped>
 .container {
-  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+}
+
+.loading-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: center;
+  flex: 1;
 }
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+.loading {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+    z-index: 100;
+    /* transform: rotateX(60deg); */
+    filter: drop-shadow(0 0 300px rgba(26, 209, 253, 1.0));
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+  .loading::before{
+    display: block;
+    width: 140px;
+    height: 140px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 
-.cell {
-  width:100%;
-  min-height:100px;
-}
+    border: solid 3px #00d1b2;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    content: "";
+    position: absolute;
+    animation: anim2 1.0s ease infinite;
+  }
+
+
+  @keyframes anim2 {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(360deg); }
+    100% { transform: rotate(720deg); }
+  }
 </style>
-
