@@ -66,9 +66,6 @@ module.exports = {
         new webpack.EnvironmentPlugin(['APIKEY', 'AUTHDOMAIN', 'DATABASEURL', 'PROJECTID', 'STORAGEBUCKET', 'MESSAGINGSENDERID'])
       )
 		*/
-    },
-    vendor: [
-      'vue-native-notification'
-    ]
+    }
   }
 }

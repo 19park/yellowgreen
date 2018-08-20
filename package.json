@@ -20,6 +20,7 @@
     "htmlspecialchars": "^1.0.5",
     "nuxt": "^1.4.2",
     "vue-native-notification": "^1.0.5",
+    "vue-perfect-scrollbar": "^0.1.0",
     "vuexfire": "^2.3.0"
   },
   "devDependencies": {

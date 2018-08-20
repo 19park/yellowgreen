@@ -33,6 +33,7 @@ export default {
 .timeline .posts{
   height: calc(100% - 36px);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .post-enter-active {

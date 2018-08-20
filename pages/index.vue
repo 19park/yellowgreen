@@ -16,8 +16,6 @@ import TheTimeLine from '~/components/TheTimeLine.vue'
 import TheUserInfo from '~/components/TheUserInfo.vue'
 import { mapGetters } from 'vuex'
 
-
-
 export default {
   data () {
     return {
