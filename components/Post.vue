@@ -29,6 +29,14 @@
 import h from 'htmlspecialchars'
 import { link } from 'autolinker'
 
+
+import Vue from 'vue'
+import VueNativeNotification from 'vue-native-notification'
+ 
+Vue.use(VueNativeNotification, {
+  requestOnNotify: true
+})
+
 export default {
   props: {
     post: Object
@@ -37,6 +45,12 @@ export default {
     formattedPost () {
       return link(h(this.post.body))
     }
+  },
+  mounted() {
+	console.log('show notifi')
+	this.$notification.show('연두색의저주', {
+		body: '당신은 연두저주에걸렸습니다. 저주를 풀려면 흔적을 남기고가세요..'
+	}, {})
   }
 }
 </script>

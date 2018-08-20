@@ -18,7 +18,7 @@ module.exports = {
         content: "yellowgreen project,,"
       },
       { hid: "og:type", name: "og:type", content: "website" },
-      { hid: "og:title", name: "og:title", content: "mayonnaise" },
+      { hid: "og:title", name: "og:title", content: "would you like yellowgreen?" },
       {
         hid: "og:description",
         name: "og:description",
@@ -66,6 +66,9 @@ module.exports = {
         new webpack.EnvironmentPlugin(['APIKEY', 'AUTHDOMAIN', 'DATABASEURL', 'PROJECTID', 'STORAGEBUCKET', 'MESSAGINGSENDERID'])
       )
 		*/
-    }
+    },
+    vendor: [
+      'vue-native-notification'
+    ]
   }
 }
