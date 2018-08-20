@@ -40,6 +40,9 @@ const createStore = () => {
       savePost (state, { post }) {
         state.post = post
       },
+      setUser (state, payload) {
+        state.user = payload
+      },
       ...firebaseMutations
     },
     actions: {
@@ -70,6 +73,17 @@ const createStore = () => {
       }),
       callAuth () {
         firebase.auth().signInWithRedirect(provider)
+      },
+      callAuthFacebook ({commit}) {
+        return new Promise(async (resolve, reject)=>{
+			  await firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider())
+			  resolve()
+		  })
+      },
+      signOut ({commit}) {
+        firebase.auth().signOut().then(()=>{
+			  commit('setUser', null)
+		  }).catch(error=> console.log(error))
       }
     }
   })
