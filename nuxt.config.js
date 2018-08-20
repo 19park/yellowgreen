@@ -5,11 +5,32 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'you like yellowgreen?',
+    title: 'would you like yellowgreen?',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'yellowgreen project..' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { "http-equiv": "pragma", content: "no-cache" },
+      { "http-equiv": "cache-control", content: "no-cache" },
+      { "http-equiv": "expires", content: "0" },
+      {
+        hid: "description",
+        name: "description",
+        content: "yellowgreen project,,"
+      },
+      { hid: "og:type", name: "og:type", content: "website" },
+      { hid: "og:title", name: "og:title", content: "mayonnaise" },
+      {
+        hid: "og:description",
+        name: "og:description",
+        content: "yellowgreen project,,"
+      },
+      {
+        hid: "og:image",
+        name: "og:image",
+        content: "https://yellowgreen.ml/y1.png"
+      },
+      { hid: "og:url", name: "og:url", content: "https://yellowgreen.ml/" },
+      { name: "theme-color", content: "#99fe00" }
     ],
     link: [
       { rel: 'stylesheet', href: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' },
