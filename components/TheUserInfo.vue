@@ -21,8 +21,8 @@
 	 </div>
 
     <div class="usr-area" v-else>
-      <a class="button is-danger" @click="callAuth">구글이로 로그인하자</a>
-		<a class="button is-primary" @click="facebookLogin">페북이로 로그인하자</a>
+      <a class="button is-danger" @click="callAuth">Google Login</a>
+		<a class="button is-primary" @click="facebookLogin">Facebook Login</a>
     </div>
   </div>
 </template>
@@ -38,6 +38,7 @@ export default {
     ...mapActions(['callAuth', 'callAuthFacebook', 'signOut']),
 	 facebookLogin () {
 		this.callAuthFacebook().then(()=>{
+		alert(3);
 			top.location.reload()
 		}).catch((e)=>{
 			console.log(e)

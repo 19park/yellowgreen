@@ -27,7 +27,7 @@ module.exports = {
       {
         hid: "og:image",
         name: "og:image",
-        content: "https://yellowgreen.ml/y1.png"
+        content: "https://yellowgreen.ml/meta-image.png"
       },
       { hid: "og:url", name: "og:url", content: "https://yellowgreen.ml/" },
       { name: "theme-color", content: "#99fe00" }

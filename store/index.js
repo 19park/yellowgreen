@@ -76,7 +76,9 @@ const createStore = () => {
       },
       callAuthFacebook ({commit}) {
         return new Promise(async (resolve, reject)=>{
+			  alert(1);
 			  await firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider())
+				alert(2);
 			  resolve()
 		  })
       },
