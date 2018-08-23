@@ -2,13 +2,15 @@
   <li class="media" v-if="post.user">
     <figure class="media-left">
       <p class="image is-64x64">
-        <img :src="post.user.icon">
+        <img :src="post.user.icon" v-if="post.user.icon"/>
+		  <img src="/email.png" v-else/>
       </p>
     </figure>
     <div class="media-content">
       <div class="content">
         <p>
-          <strong>{{post.user.name}}</strong>
+          <strong v-if="post.user.name">{{post.user.name}}</strong>
+			 <strong v-else>{{post.user.email}}</strong>
           <br>
           <span v-html="formattedPost" />
         </p>
