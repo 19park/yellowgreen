@@ -76,12 +76,20 @@ const createStore = () => {
       },
       callAuthFacebook ({commit}) {
         return new Promise(async (resolve, reject)=>{
-			  alert(1);
 			  await firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider())
-				alert(2);
 			  resolve()
 		  })
       },
+		callAuthEmail ({commit}, obj) {
+			return new Promise(async (resolve, reject)=>{
+				await firebase.auth().signInWithEmailAndPassword(obj.email, obj.password).then((user)=>{
+					resolve()
+					commit('setUser', user)
+				}).catch((err)=>{
+					reject(err)
+				})
+			})
+		},
       signOut ({commit}) {
         firebase.auth().signOut().then(()=>{
 			  commit('setUser', null)

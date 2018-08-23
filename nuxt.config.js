@@ -52,6 +52,7 @@ module.exports = {
     /*
     ** Run ESLint on save
     */
+	 vendor: ['vue-loading-overlay'],
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({

@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
 .timeline {
-  height: calc(100vh - 140px);
+  height: calc(100vh - 50px);
 }
 
 .timeline .posts{
@@ -56,5 +56,11 @@ export default {
 @keyframes slideIn {
   0% {opacity: 0.0}
   100% {opacity: 1.0}
+}
+
+@media all and (max-width:768px){
+	.timeline {
+	  height: calc(100vh - 180px);
+	}
 }
 </style>
